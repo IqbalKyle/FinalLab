@@ -14,6 +14,10 @@ public class FinalLab {
         HashTable ht = new HashTable();
         graph graph = new graph();
 
+        //Memuat data dummy 
+        System.out.println("Memuat data dummy");
+        DummyData.load(bst, ht, graph);
+        
         while (true) {
             System.out.println("=== Contact Manager with Friends ===");
             System.out.println("1) Tambah kontak");
