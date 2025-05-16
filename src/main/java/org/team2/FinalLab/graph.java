@@ -10,7 +10,7 @@ import java.util.Queue;
 //Graph undirected untuk relasi pertemanan antar kontak.
 
 public class graph {
-    private final Map<Integer, List<Integer>> adj = new HashMap<>();
+    public final Map<Integer, List<Integer>> adj = new HashMap<>();
 
     // Tambah node kontak
     public void addNode(int id) {
