@@ -4,9 +4,7 @@ package org.team2.FinalLab;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 //Main interaktif 
 public class FinalLab {
@@ -14,7 +12,6 @@ public class FinalLab {
         BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
         bst bst = new bst();
         HashTable ht = new HashTable();
-        Map<Integer, String> contacts = new HashMap<>();
         graph graph = new graph();
 
         while (true) {
@@ -32,7 +29,7 @@ public class FinalLab {
             if (choice.equals("0")) break;
 
             switch (choice) {
-                case "1":
+                case "1" -> {
                     System.out.print("Masukkan ID (integer): ");
                     int newId = Integer.parseInt(in.readLine());
                     System.out.print("Masukkan nama: ");
@@ -45,9 +42,9 @@ public class FinalLab {
                         graph.addNode(newId);
                         System.out.println("Kontak tersimpan.");
                     }
-                    break;
+                }
 
-                case "2":
+                case "2" -> {
                     System.out.print("Masukkan ID yang dicari: ");
                     int searchId = Integer.parseInt(in.readLine());
                     if (bst.search(searchId)) {
@@ -55,9 +52,9 @@ public class FinalLab {
                     } else {
                         System.out.println("Kontak dengan ID tersebut tidak ditemukan.");
                     }
-                    break;
+                }
 
-                case "3":
+                case "3" -> {
                     System.out.print("Masukkan ID yang akan dihapus: ");
                     int delId = Integer.parseInt(in.readLine());
                     if (bst.search(delId)) {
@@ -69,14 +66,14 @@ public class FinalLab {
                     } else {
                         System.out.println("ID tidak ditemukan.");
                     }
-                    break;
+                }
 
-                case "4":
+                case "4" -> {
                     System.out.println("--- Daftar Kontak (terurut by ID) ---");
                     bst.inorderPrint(ht.entries());
-                    break;
+                }
 
-                case "5":
+                case "5" -> {
                     System.out.print("Masukkan ID kontak pertama: ");
                     int id1 = Integer.parseInt(in.readLine());
                     System.out.print("Masukkan ID kontak kedua: ");
@@ -87,9 +84,9 @@ public class FinalLab {
                     } else {
                         System.out.println("Salah satu ID tidak ditemukan.");
                     }
-                    break;
+                }
 
-                case "6":
+                case "6" -> {
                     System.out.print("Masukkan ID kontak: ");
                     int idf = Integer.parseInt(in.readLine());
                     if (bst.search(idf)) {
@@ -98,9 +95,9 @@ public class FinalLab {
                     } else {
                         System.out.println("ID tidak ditemukan.");
                     }
-                    break;
+                }
 
-                case "7":
+                case "7" -> {
                     System.out.print("Masukkan ID sumber: ");
                     int s = Integer.parseInt(in.readLine());
                     System.out.print("Masukkan ID target: ");
@@ -108,10 +105,9 @@ public class FinalLab {
                     List<Integer> path = graph.shortestPath(s, t);
                     if (path == null) System.out.println("Tidak ada jalur menghubungkan.");
                     else System.out.println("Jalur terpendek: " + path);
-                    break;
+                }
 
-                default:
-                    System.out.println("Pilihan tidak valid.");
+                default -> System.out.println("Pilihan tidak valid.");
             }
             System.out.println();
         }
